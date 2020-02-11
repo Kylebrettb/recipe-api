@@ -4,12 +4,11 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.integer :course_id
       t.integer :genre_id
       t.integer :created_by
-      t.string :named
+      t.string :name
       t.boolean :is_vegan?
       t.boolean :is_gluten_free?
-      t.integer :created_by
-      t.text :instructions_id
-      t.string :ingredients_id
+      t.text :instructions
+      t.string :ingredients
 
       t.timestamps
     end

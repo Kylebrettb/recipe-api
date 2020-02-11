@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_033744) do
+ActiveRecord::Schema.define(version: 2020_02_11_185317) do
 
   create_table "courses", force: :cascade do |t|
-    t.string "name_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.string "name_id"
     t.integer "user_id"
+    t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,26 +35,26 @@ ActiveRecord::Schema.define(version: 2020_02_10_033744) do
     t.integer "course_id"
     t.integer "genre_id"
     t.integer "created_by"
-    t.string "named"
+    t.string "name"
     t.boolean "is_vegan?"
     t.boolean "is_gluten_free?"
-    t.text "instructions_id"
-    t.string "ingredients_id"
+    t.text "instructions"
+    t.string "ingredients"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.text "content_id"
+    t.text "content"
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name_id"
-    t.string "email_id"
+    t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

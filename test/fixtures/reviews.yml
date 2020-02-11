@@ -2,10 +2,10 @@
 
 one:
   user_id: 1
-  content_id: MyText
+  content: MyText
   recipe_id: 1
 
 two:
   user_id: 1
-  content_id: MyText
+  content: MyText
   recipe_id: 1

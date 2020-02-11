@@ -4,20 +4,18 @@ one:
   course_id: 1
   genre_id: 1
   created_by: 1
-  named: MyString
+  name: MyString
   is_vegan?: false
   is_gluten_free?: false
-  created_by: 1
-  instructions_id: MyText
-  ingredients_id: 
+  instructions: MyText
+  ingredients: MyString
 
 two:
   course_id: 1
   genre_id: 1
   created_by: 1
-  named: MyString
+  name: MyString
   is_vegan?: false
   is_gluten_free?: false
-  created_by: 1
-  instructions_id: MyText
-  ingredients_id: 
+  instructions: MyText
+  ingredients: MyString
