@@ -1,50 +1,49 @@
-class DinnersController < ApplicationController
-  before_action :set_dinner, only: [:show, :destroy, :update]
+class CoursesController < ApplicationController
+  before_action :set_Course, only: [:show, :destroy, :update]
 
   def index
-    @dinners = Dinner.all
-    render json: @dinners, status: :ok
+    @course = course.all
+    render json: @course, status: :ok
   end
 
   def show
-    render json: @dinner, status: :ok
+    render json: @course, status: :ok
   end
 
   def create
-    @dinner = Dinner.new(dinner_params)
+    @course = Course.new(dinner_params)
 
-    if @dinner.save
-      render json: @dinner, status: :created
+    if @course.save
+      render json: @course, status: :created
     else
-      render json: { errors: @dinner.errors.full_messages,
-         message: 'Can not create dinner because:' }, status: 422
+      render json: { errors: @course.errors.full_messages,
+         message: 'Can not create Course because:' }, status: 422
     end
   end
 
   def update
-    @dinner.update(dinner_params)
-    render json: @dinner, status: :ok
+    @course.update(course_params)
+    render json: @course, status: :ok
   end
 
   def destroy
-    @dinner.destroy
+    @course.destroy
     head :no_content
   end
 
   private
-  def dinner_params
-    params.require(:dinner).permit(
-      :id,
-      :title,
-      :rating,
-      :image,
-      image_attributes: [ :id, :name, :url ],
-      ingredients_attributes: [ :id, :name ],
-      directions_attributes: [ :id, :step ]
+  def course_params
+    params.require(:course).permit(
+      :favorite,
+      :review,
+      :genre,
+      :user,
+      :recipe,
+    
     )
   end
 
-  def set_dinner
-    @dinner = Dinner.find(params[:id])
+  def set_course
+    @course = Course.find(params[:id])
   end
 end
