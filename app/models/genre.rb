@@ -6,3 +6,6 @@ class Genre < ApplicationRecord
 
 end
 #hello tucker again
+#hello tucker again
+#hello tucker again
+#hello tucker again
