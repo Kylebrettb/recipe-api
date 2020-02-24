@@ -1,6 +1,6 @@
 class Favorite < App
-  belongs_to :users
-  belongs_to :recipes
+  belongs_to :user
+  belongs_to :recipe
 
 
   validates_presence_of: recipe
