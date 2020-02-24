@@ -1,6 +1,7 @@
 class Genre < ApplicationRecord
-  has_many :recipe
+  has_many :recipes
+   
 
 
-  validates_presence_of: recipe
+
 end
