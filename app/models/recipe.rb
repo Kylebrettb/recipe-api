@@ -6,3 +6,4 @@ class Recipe < ApplicationRecord
 
   validates_presence_of: course
 end
+#hello tucker
