@@ -4,6 +4,6 @@ class Recipe < ApplicationRecord
   belongs_to :created_by
 
 
-  validates_presence_of: course
+  validates_presence_of :course_id, :genre_id, :created_by
 end
 #hello tucker
