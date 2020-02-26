@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
       :genre,
       :user,
       :recipe,
-    
+
     )
   end
 
