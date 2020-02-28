@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     u.password = SecureRandom.hex
     end
     session[:user_id] = @user.id
-    
+
     end
   end
 
