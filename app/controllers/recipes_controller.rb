@@ -2,11 +2,11 @@ class RecipesController < ApplicationController
   before_action :require_login
 
   def index
-    @recipes = current_user.recipes.all(:id)
+    @recipes = Recipes.all
   end
 
   def show
-    @recipe = current_user.recipes.find.all(params[:id])
+    @recipe = Recipes.find(params[:id])
   end
 
   def new
