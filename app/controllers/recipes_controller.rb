@@ -2,11 +2,11 @@ class RecipesController < ApplicationController
   before_action :require_login
 
   def index
-    @recipes = current_user.recipes.order(:id)
+    @recipes = current_user.recipes.all(:id)
   end
 
   def show
-    @recipe = current_user.recipes.find(params[:id])
+    @recipe = current_user.recipes.find.all(params[:id])
   end
 
   def new
@@ -33,6 +33,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description)
+    params.require(:recipe).permit(:name, :ingredients, :course, :genre, :created_by, :instructions, :is_gluten_free?, :is_vegan?)
   end
 end
