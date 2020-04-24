@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Courses.create(name: "Breakfast")
-Courses.create(name:"Lunch")
-Courses.create(name:"Dinner")
-Courses.create(name:"Dessert")
+Course.create(name: "Breakfast")
+Course.create(name:"Lunch")
+Course.create(name:"Dinner")
+Course.create(name:"Dessert")
 Genres.create(name: "Mexican")
 Genres.create(name: "Italian")
 Genres.create(name: "American")
