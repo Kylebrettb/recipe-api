@@ -1,17 +1,24 @@
 class FavoriteRecipesController < ApplicationController
      before_action :set_recipe
 
-  def create
-    if Favorite.create(favorited: @recipe, user: current_user)
-      redirect_to @recipe, notice: 'Recipe favorited'
-    else
-      redirect_to @recipe, alert: 'Something went wrong.'
+     def create
+    @favorite = Favorite.new
+    @favorite.user_id = params[:user_id]
+    @favorite.recipe_id = params[:recipe_id]
+    if @favorite.save
+      render json: @favorite.to_json
+
+else
+  render json: "Failed to create favorite"
     end
+
+
   end
 
   def destroy
-    Favorite.where(favorited_id: @recipe.rId, user_id: current_user.id).first.destroy
-    redirect_to @recipe, notice: 'Recipe unfavorited.'
+    @favorite = Favorite.find params[:id]
+    @favorite.destroy 
+
   end
 
   private

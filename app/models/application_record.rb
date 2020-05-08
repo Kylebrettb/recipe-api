@@ -1,3 +1,3 @@
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
+class ApplicationRecord < ActiveRecord::Ba=890
+  self.abst ract_class = true
 end

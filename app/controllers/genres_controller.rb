@@ -1,11 +1,14 @@
-class GenresController < ApplicationController
-
+class GenreController < ApplicationController
   def index
-   @genres = Genre.all
-  end
+   @genre = Genre.all
 
+       render json: @genre.to_json
+  
+end
   def show
     @genre = Genre.find(params[:id])
-  end
 
+
+      render json: @genre.to_json
+  end
 end

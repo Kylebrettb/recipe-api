@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
   def new
   	@user = User.new
+
+
+        render json: @user.to_json
   end
 
   def create
   	@user = User.create(user_params)
   	session[:user_id] = @user.id
-  
+
+     render json: @user.to_json
+
   end
 
 

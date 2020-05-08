@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def new
   	@user = User.new
+
+       render json: @user.to_json
   end
 
   def create
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
   		session[:user_id] = @user.id
 
   	else
-  		redirect_to '/login'
+  	render json: @user.to_json "Failed to log in"
   	end
     else
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
@@ -20,18 +22,20 @@ class SessionsController < ApplicationController
     u.password = SecureRandom.hex
     end
     session[:user_id] = @user.id
+    render json: @user.to_json "Successfully logged in"
 
     end
   end
 
   def login
+
   end
 
   def welcome
   end
   def destroy
     session.delete(:user_id)
-    redirect_to '/welcome'
+  render json: @user.to_json "Successfully deleted"
   end
   private
 

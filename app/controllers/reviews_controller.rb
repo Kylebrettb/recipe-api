@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
 
-		 	redirect_to "/recipes/#{review_params[:recipe_id]}"
+       render json: @review.to_json
   end
 
 

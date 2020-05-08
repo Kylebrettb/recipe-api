@@ -3,31 +3,37 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+
+    render json: @index.to_json
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+
+     render json: @show.to_json
   end
 
   def new
     @recipe = current_user.recipes.build
+    |
+       render json: @new.to_json
   end
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_path(@recipe), notice: "Recipe Created!"
+      render json: @recipe.to_json
     else
-      @errors = @recipe.errors.full_messages
-      render :new
+
+      render json: "Failed to create recipe"
     end
   end
 
   def destroy
     recipe = current_user.recipes.find(params[:id])
     recipe.destroy
-    redirect_to recipes_path, notice: "Deleted Recipe: #{recipe.name}"
+    
   end
 
   private
